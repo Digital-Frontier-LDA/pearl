@@ -22,7 +22,7 @@
     "logs:open": "open ~/Library/Logs/@pearl/pearl-desktop-wallet/"
   },
   "dependencies": {
-    "@grpc/grpc-js": "^1.14.4",
+    "@grpc/grpc-js": "^1.13.4",
     "@grpc/proto-loader": "^0.8.0",
     "@hookform/resolvers": "^5.2.1",
     "@pearl/ui": "workspace:*",
@@ -57,7 +57,7 @@
     "@zxcvbn-ts/core": "^3.0.4",
     "@zxcvbn-ts/language-common": "^3.0.4",
     "@zxcvbn-ts/language-en": "^3.0.2",
-    "axios": "^1.18.0",
+    "axios": "^1.11.0",
     "bip32": "5.0.0-rc.0",
     "bip39": "^3.1.0",
     "bitcoinjs-lib": "^6.1.7",
@@ -96,13 +96,13 @@
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.21",
-    "electron": "^39.8.5",
+    "electron": "^32.2.0",
     "electron-builder": "^26.0.12",
     "electron-vite": "^4.0.0",
-    "postcss": "^8.5.18",
+    "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.2",
-    "vite": "^7.3.5"
+    "vite": "^7.1.0"
   },
   "main": "./out/main/index.js",
   "homepage": "./"
