@@ -8,6 +8,13 @@ on:
 permissions:
   contents: read
 
+# Pinned below "stable": Rust 1.98 added clippy::chunks_exact_to_as_chunks, which
+# fails pearl-blake3 and zk-pow under -D warnings. RUSTUP_TOOLCHAIN is needed as
+# well as the action input, because the crates' rust-toolchain.toml say "stable"
+# and override rustup's default. Unpin once the call sites adopt as_chunks.
+env:
+  RUSTUP_TOOLCHAIN: 1.97.1
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
@@ -48,6 +55,7 @@ jobs:
           persist-credentials: false
       - uses: dtolnay/rust-toolchain@29eef336d9b2848a0b548edc03f92a220660cdb8 # stable
         with:
+          toolchain: 1.97.1
           components: rustfmt, clippy
       - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
         with:
@@ -79,6 +87,7 @@ jobs:
           persist-credentials: false
       - uses: dtolnay/rust-toolchain@29eef336d9b2848a0b548edc03f92a220660cdb8 # stable
         with:
+          toolchain: 1.97.1
           components: rustfmt, clippy
       - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
         with:
@@ -147,6 +156,8 @@ jobs:
           submodules: recursive
           persist-credentials: false
       - uses: dtolnay/rust-toolchain@29eef336d9b2848a0b548edc03f92a220660cdb8 # stable
+        with:
+          toolchain: 1.97.1
       - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
         with:
           workspaces: "py-pearl-mining -> target"
